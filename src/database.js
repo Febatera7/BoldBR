@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 import mongoose from 'mongoose';
 
 class Database {
@@ -6,14 +8,11 @@ class Database {
   }
 
   mongo() {
-    this.mongoConnection = mongoose.connect(
-      'mongodb+srv://boldbr:<password>@boldbr.ucvp3.mongodb.net/<dbname>?retryWrites=true&w=majority',
-      {
-        useNewUrlParser: true,
-        useFindAndModify: true,
-        useUnifiedTopology: true,
-      }
-    );
+    this.mongoConnection = mongoose.connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useFindAndModify: true,
+      useUnifiedTopology: true,
+    });
   }
 }
 
