@@ -1,16 +1,14 @@
-import request from 'supertest';
-import app from '../../src/app';
-import factory from '../factories';
+const request = require('supertest');
+const app = require('../../src/app');
+const factory = require('../factories');
 
 describe('User', () => {
   it('it should be able to register', async () => {
-    const user = await factory.attrs('Users')
+    const user = await factory.attrs('Users');
 
-    const response = await request(app)
-      .post('/signup')
-      .send(user);
+    const response = await request(app).post('/signup').send(user);
 
-      expect(response.body).toHaveProperty('id');
+    expect(response.body).toHaveProperty('id');
   });
 
   it('it should not be able to register with a  duplicated mail', async () => {
@@ -23,11 +21,11 @@ describe('User', () => {
         telefones: [
           {
             ddd: 11,
-            numero: 987654321
-          }
-        ]
+            numero: 987654321,
+          },
+        ],
       });
 
-      expect(response.status).toBe(400);
+    expect(response.status).toBe(400);
   });
 });

@@ -1,9 +1,9 @@
-import jwt from 'jsonwebtoken';
-import { promisify } from 'util';
-import authConfig from '../../config/auth';
-import Users from '../schema/Users';
+const jwt = require('jsonwebtoken');
+const { promisify } = require('util');
+const authConfig = require('../../config/auth');
+const Users = require('../schema/Users');
 
-export default async (req, res, next) => {
+module.exports = async (req, res, next) => {
   const authHeader = req.headers.authorization;
 
   const [, token] = authHeader.split(' ');

@@ -1,8 +1,8 @@
-import jwt from 'jsonwebtoken';
-import crypto from 'crypto';
-import bcrypt from 'bcryptjs';
-import authConfig from '../../config/auth';
-import Users from '../schema/Users';
+const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
+const bcrypt = require('bcryptjs');
+const authConfig = require('../../config/auth');
+const Users = require('../schema/Users');
 
 class UserController {
   async create(req, res) {
@@ -62,4 +62,4 @@ class UserController {
   }
 }
 
-export default new UserController();
+module.exports = new UserController();

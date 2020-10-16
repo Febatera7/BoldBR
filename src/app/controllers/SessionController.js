@@ -1,7 +1,7 @@
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcryptjs';
-import Users from '../schema/Users';
-import authConfig from '../../config/auth';
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const Users = require('../schema/Users');
+const authConfig = require('../../config/auth');
 
 class SessionController {
   async create(req, res) {
@@ -42,4 +42,4 @@ class SessionController {
   }
 }
 
-export default new SessionController();
+module.exports = new SessionController();

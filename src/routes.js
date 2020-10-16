@@ -1,7 +1,7 @@
-import { Router } from 'express';
-import authMiddleware from './app/middlewares/auth';
-import UserController from './app/controllers/UserController';
-import SessionController from './app/controllers/SessionController';
+const { Router } = require('express');
+const authMiddleware = require('./app/middlewares/auth');
+const UserController = require('./app/controllers/UserController');
+const SessionController = require('./app/controllers/SessionController');
 
 const routes = new Router();
 
@@ -10,4 +10,4 @@ routes.get('/user', authMiddleware, UserController.read);
 
 routes.post('/signin', SessionController.create);
 
-export default routes;
+module.exports = routes;

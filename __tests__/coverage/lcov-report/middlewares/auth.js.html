@@ -130,7 +130,7 @@ import { promisify } from 'util';
 import authConfig from '../../config/auth';
 import Users from '../schema/Users';
 &nbsp;
-export default async (req, res, next) =&gt; {
+module.exports =  async (req, res, next) =&gt; {
   const authHeader = req.headers.authorization;
 &nbsp;
   const [, token] = authHeader.split(' ');
