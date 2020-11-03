@@ -27,10 +27,18 @@ class SessionController {
     });
 
     const userUpdated = await Users.findOne({ token });
-    
-    const timestamp = ((new Date() - 30 * 60 * 1000) - (new Date() - 60 * 60 * 1000));
 
-    return res.json({hora: timestamp});
+    return res.json({
+      id: userUpdated.id,
+      nome: userUpdated.nome,
+      email: userUpdated.email,
+      senha: userUpdated.senha,
+      telefones: userUpdated.telefones,
+      ultimo_login: userUpdated.ultimo_login,
+      data_criacao: userUpdated.createdAt,
+      data_atualizacao: userUpdated.updatedAt,
+      token: userUpdated.token,
+      });
   }
 }
 
