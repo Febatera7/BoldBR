@@ -28,9 +28,9 @@ class SessionController {
 
     const userUpdated = await Users.findOne({ token });
     
-    const timestamp = ((new Date() - 60 * 60 * 1000) - (new Date() - 30 * 60 * 1000));
+    const timestamp = ((new Date() - 30 * 60 * 1000) - (new Date() - 60 * 60 * 1000));
 
-    return res.send(timestamp);
+    return res.json({hora: timestamp});
   }
 }
 
